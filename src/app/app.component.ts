@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {NgIf} from '@angular/common';
 import {CounterPlusFiveComponent} from "./counter-plus-five/counter-plus-five.component";
 import {CounterPlusOneComponent} from "./counter-plus-one/counter-plus-one.component";
-import {CounterService} from "./counter.service";
+import {PokemonService} from "./pokemon.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,24 @@ import {CounterService} from "./counter.service";
   styleUrls: ['./app.component.css'],
   imports: [
     CounterPlusFiveComponent,
-    CounterPlusOneComponent
+    CounterPlusOneComponent,
+    NgIf
   ],
   standalone: true
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'angular-signals';
 
-  constructor(private counterService: CounterService) {
+  constructor(private pokemonService: PokemonService) {
   }
 
-  counter = this.counterService.counter;
+  ngOnInit() {
+    this.pokemonService.getPokemon();
+  }
+
+  pokemon = this.pokemonService.pokemon;
+
+  randomPokemon() {
+    this.pokemonService.getPokemon()
+  }
 }

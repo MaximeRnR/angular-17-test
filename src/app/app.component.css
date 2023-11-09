@@ -1,3 +1,23 @@
 .big-counter {
-  font-size: 120px;
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+  justify-content: center;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
 }

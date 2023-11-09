@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {CounterService} from "../counter.service";
+import {Pokemon, PokemonService} from "../pokemon.service";
 
 @Component({
   selector: 'app-counter-plus-five',
@@ -12,9 +12,12 @@ import {CounterService} from "../counter.service";
 export class CounterPlusFiveComponent {
 
 
-  constructor(private counterService: CounterService) { }
+  constructor(private pokemonService: PokemonService) { }
 
   increment() {
-    this.counterService.counter.update(value => value + 5);
+    this.pokemonService.pokemon.update(value => {
+      const newLevel = value.level += 1
+      return {...value, level: newLevel} as Pokemon
+    });
   }
 }

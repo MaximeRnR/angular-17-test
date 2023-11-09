@@ -1,5 +1,11 @@
-<app-counter-plus-five></app-counter-plus-five>
-<app-counter-plus-one></app-counter-plus-one>
+
 <div class="big-counter">
-  {{counter()}}
+    {{pokemon().id}} - {{pokemon().name}}
+  <img [src]="pokemon().image" *ngIf="pokemon().image" [alt]="pokemon().name" width="200px"/>
+  <span>{{pokemon().level}}</span>
+</div>
+<div class="actions">
+  <app-counter-plus-five></app-counter-plus-five>
+  <app-counter-plus-one></app-counter-plus-one>
+  <button (click)="randomPokemon()">Random</button>
 </div>
