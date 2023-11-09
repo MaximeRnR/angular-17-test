@@ -1,11 +1,11 @@
-
-<div class="big-counter">
+<div *ngIf="pokemon.isLoading()"> loading ...</div>
+<div *ngIf="!pokemon.isLoading()" class="big-counter">
     {{pokemon.id}}
   <img [src]="pokemon.image" *ngIf="pokemon.image" [alt]="pokemon.name" width="100px"/>
   <span>{{pokemon.level}}</span>
-</div>
-<div class="actions">
-  <app-counter-plus-five></app-counter-plus-five>
-  <app-counter-plus-one></app-counter-plus-one>
-  <button (click)="randomPokemon()">Random</button>
+  <div class="actions">
+    <app-counter-plus-five></app-counter-plus-five>
+    <app-counter-plus-one></app-counter-plus-one>
+    <button (click)="randomPokemon()">Random</button>
+  </div>
 </div>

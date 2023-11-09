@@ -3,7 +3,6 @@ import {NgIf} from '@angular/common';
 import {CounterPlusFiveComponent} from "./counter-plus-five/counter-plus-five.component";
 import {CounterPlusOneComponent} from "./counter-plus-one/counter-plus-one.component";
 import {PokemonService} from "./pokemon.service";
-import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',

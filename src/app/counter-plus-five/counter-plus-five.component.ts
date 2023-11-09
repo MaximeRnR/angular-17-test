@@ -15,6 +15,6 @@ export class CounterPlusFiveComponent {
   constructor(private pokemonService: PokemonService) { }
 
   increment() {
-    this.pokemonService.pokemon.gainExperience(5);
+    this.pokemonService.gainExperience(5);
   }
 }

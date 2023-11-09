@@ -11,8 +11,13 @@ export class PokemonService {
 
   constructor(private httpClient: HttpClient) { }
 
+  gainExperience(experience: Number) {
+    this.pokemon.gainExperience(experience);
+  }
+
   getPokemon() {
     const randomId = Math.floor(Math.random() * 100) + 1;
+    this.pokemon.loading()
     this.httpClient.get(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
       .subscribe((response: any) => {
         const pokemon: Pokemon = new Pokemon(
@@ -28,6 +33,19 @@ export class PokemonService {
 
 export class PokemonSignal {
   signal = signal({} as Pokemon);
+  loadingSignal = signal(false)
+
+  loading() {
+    return this.loadingSignal.set(true);
+  }
+
+  stopLoading() {
+    return this.loadingSignal.set(false);
+  }
+
+  isLoading() {
+    return this.loadingSignal();
+  }
 
   gainExperience(experience: Number) {
     this.signal.update(value => {
@@ -37,6 +55,7 @@ export class PokemonSignal {
 
   initialize(pokemon: Pokemon) {
     this.signal.set(pokemon);
+    this.stopLoading()
   }
 
   get id() {
