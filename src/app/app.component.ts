@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
     this.pokemonService.getPokemon();
   }
 
-  pokemon = this.pokemonService.pokemon;
+  pokemon = this.pokemonService.pokemon
 
   randomPokemon() {
     this.pokemonService.getPokemon()

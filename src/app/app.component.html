@@ -1,8 +1,8 @@
 
 <div class="big-counter">
-    {{pokemon().id}} - {{pokemon().name}}
-  <img [src]="pokemon().image" *ngIf="pokemon().image" [alt]="pokemon().name" width="200px"/>
-  <span>{{pokemon().level}}</span>
+    {{pokemon.id}}
+  <img [src]="pokemon.image" *ngIf="pokemon.image" [alt]="pokemon.name" width="100px"/>
+  <span>{{pokemon.level}}</span>
 </div>
 <div class="actions">
   <app-counter-plus-five></app-counter-plus-five>

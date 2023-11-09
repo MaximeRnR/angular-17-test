@@ -15,9 +15,6 @@ export class CounterPlusOneComponent {
   constructor(private pokemonService: PokemonService) { }
 
   increment() {
-    this.pokemonService.pokemon.update(value => {
-      const newLevel = value.level += 1
-      return {...value, level: newLevel} as Pokemon
-    });
+    this.pokemonService.pokemon.gainExperience(1);
   }
 }
