@@ -1,7 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {NgIf} from '@angular/common';
-import {CounterPlusFiveComponent} from "./counter-plus-five/counter-plus-five.component";
-import {CounterPlusOneComponent} from "./counter-plus-one/counter-plus-one.component";
+import {Component} from '@angular/core';
+import {PokemonComponent} from "./pokemon/pokemon.component";
 import {PokemonService} from "./pokemon.service";
 
 @Component({
@@ -9,13 +7,11 @@ import {PokemonService} from "./pokemon.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
-    CounterPlusFiveComponent,
-    CounterPlusOneComponent,
-    NgIf
+    PokemonComponent
   ],
   standalone: true
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'angular-signals';
 
   constructor(private pokemonService: PokemonService) {
