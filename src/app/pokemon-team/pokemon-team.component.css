@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}

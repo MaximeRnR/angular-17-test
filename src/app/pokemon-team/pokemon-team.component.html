@@ -1,0 +1,26 @@
+<div class="pokemon-team-container">
+  <button class="pokemon-button" (click)="addPokemon()">Add pokemon</button>
+
+  <div class="team-container">
+    @for (pokemon of pokemons; track pokemon.id) {
+      <span>{{pokemon.name}}</span>
+        @if (pokemon.image) {
+          <img [src]="pokemon.image" [alt]="pokemon.name" width="100px"/>
+        } @else {
+          <span>Utilise ton Devon Scope</span>
+        }
+    } @empty {
+      <span>Créer votre équpe !</span>
+    }
+  </div>
+</div>
+
+<div class="pokemon-team-container">
+  <div class="team-container">
+    <div *ngFor="let pokemon of pokemons">
+      <span>{{pokemon.name}}</span>
+      <img *ngIf="pokemon.image" [src]="pokemon.image" [alt]="pokemon.name" width="100px"/>
+    </div>
+    <span *ngIf="pokemons.length === 0">Créer votre équpe !</span>
+  </div>
+</div>

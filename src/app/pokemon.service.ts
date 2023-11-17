@@ -15,10 +15,9 @@ export class PokemonService {
     this.pokemon.gainExperience(experience);
   }
 
-  getPokemon() {
-    const randomId = Math.floor(Math.random() * 100) + 1;
+  getPokemon(id: number = Math.floor(Math.random() * 151) + 1) {
     this.pokemon.loading()
-    this.httpClient.get(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
+    this.httpClient.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .subscribe((response: any) => {
         const pokemon: Pokemon = new Pokemon(
           response.id,
