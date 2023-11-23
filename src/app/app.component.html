@@ -1,16 +1,12 @@
 @defer(on interaction(random)) {
 <app-pokemon></app-pokemon>
 } @placeholder {
-  <div class="loading">Waiting...</div>
+    <div class="waiting">Waiting...</div>
+} @loading (minimum 1s) {
+    <div class="loading">Loading...</div>
 } @error {
-  <div class="error">Error</div>
-} @loading {
-  <div class="loading">Loading...</div>
+    <div class="error">Error</div>
 }
-
-
-<div>
-</div>
 
 <button #random (click)="randomPokemon()">Random</button>
 

@@ -3,19 +3,19 @@
 
   <div class="team-container">
     @for (pokemon of pokemons; track pokemon.id) {
-      <span>{{pokemon.name}}</span>
-        @if (pokemon.image) {
-          <img [src]="pokemon.image" [alt]="pokemon.name" width="100px"/>
-        } @else {
-          <span>Utilise ton Devon Scope</span>
-        }
+      <span id="pokemon-name">{{pokemon.name}}</span>
+      @if (pokemon.image) {
+        <img [src]="pokemon.image" [alt]="pokemon.name"/>
+      } @else {
+        <span>Utilise ton Devon Scope</span>
+      }
     } @empty {
       <span>Créer votre équpe !</span>
     }
   </div>
 </div>
 
-<div class="pokemon-team-container">
+<div class="pokemon-team-container-exemple">
   <div class="team-container">
     <div *ngFor="let pokemon of pokemons">
       <span>{{pokemon.name}}</span>
@@ -24,3 +24,37 @@
     <span *ngIf="pokemons.length === 0">Créer votre équpe !</span>
   </div>
 </div>
+
+<div class="table">
+  @switch(loading) {
+    @case (true) { <div>Loading ...</div> }
+    @case (false) {
+      @for (pokemon of allPokemons; track pokemon.id) {
+        <span id="pokemon-id" class="mat-cell">{{ pokemon.id }}</span>
+        <div id="pokemon-name" class="mat-cell">
+          <span>{{pokemon.name}}</span>
+          <img class="pokeball-logo" [src]="'assets/h.png'" [alt]="pokemon.name "/>
+        </div>
+      } @empty {
+        <span>Finito !</span>
+      }
+    }
+  }
+</div>
+
+<div class="table-exemple">
+  <div [ngSwitch]="loading">
+    <div *ngSwitchCase="true">Loading ...</div>
+    <div *ngSwitchCase="false">
+      <div *ngFor="let pokemon of allPokemons">
+        <span id="pokemon-id" class="mat-cell">{{ pokemon.id }}</span>
+        <div id="pokemon-name" class="mat-cell">
+          <span>{{pokemon.name}}</span>
+          <img class="pokeball-logo" [src]="'assets/h.png'" [alt]="pokemon.name "/>
+        </div>
+        <span *ngIf="allPokemons.length">Finito !</span>
+      </div>
+    </div>
+  </div>
+</div>
+

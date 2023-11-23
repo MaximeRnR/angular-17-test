@@ -9,3 +9,25 @@
   flex-direction: row;
   margin-top: 10px;
 }
+
+.table {
+  margin-top: 50px;
+}
+
+#pokemon-name {
+  display: flex;
+  align-items: center;
+}
+
+.pokeball-logo {
+  margin-left: 10px;
+  width: 30px;
+}
+
+.table-exemple {
+  display: none;
+}
+
+.pokemon-team-container-exemple {
+  display: none;
+}
